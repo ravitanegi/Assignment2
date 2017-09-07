@@ -1,0 +1,67 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>logincheck</servlet-name>
+  	<display-name>logincheck</display-name>
+  	<description></description>
+  	<servlet-class>logincheck</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>checklogin</servlet-name>
+  	<display-name>checklogin</display-name>
+  	<description></description>
+  	<servlet-class>checklogin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>check</servlet-name>
+  	<display-name>check</display-name>
+  	<description></description>
+  	<servlet-class>check</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>parkcheck</servlet-name>
+  	<display-name>parkcheck</display-name>
+  	<description></description>
+  	<servlet-class>jdbc.parkcheck</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>logcheck</servlet-name>
+  	<display-name>logcheck</display-name>
+  	<description></description>
+  	<servlet-class>logcheck</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>dbconnection</servlet-name>
+  	<display-name>dbconnection</display-name>
+  	<description></description>
+  	<servlet-class>dbconnection</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>logincheck</servlet-name>
+  	<url-pattern>/logincheck</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>checklogin</servlet-name>
+  	<url-pattern>/checklogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>check</servlet-name>
+  	<url-pattern>/check</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>parkcheck</servlet-name>
+  	<url-pattern>/parkcheck</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>logcheck</servlet-name>
+  	<url-pattern>/logcheck</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>dbconnection</servlet-name>
+  	<url-pattern>/dbconnection</url-pattern>
+  </servlet-mapping>
+</web-app>
