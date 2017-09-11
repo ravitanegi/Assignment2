@@ -1,20 +1,3 @@
-<%@include file="database.jsp" %>
-<%  
-
-	String Pay= request.getParameter("Pay");
-	if(Pay!=null){
-		boolean transaction = false;
-		//if(getRecordNumber(){
-			
-	}
-//}
-
-%>
-
-
-
-
-
 
 
 
@@ -34,13 +17,17 @@
 	String datetoday = Date_format.format(today);
 %>
 <body>
-	<form method="post" action="parkcheck">
+	<form method="post" action="Parkcheck">
 		<table>
 
 			<tr>
 				<caption align="top">
 					<h4>Welcome to Car Parking System</h4>
 				</caption>
+			</tr>
+			<tr>
+				<td>User Id</td>
+				<td><input type="text" name="Uid"></td>
 			</tr>
 
 			<tr>
@@ -61,12 +48,12 @@
 			</tr>
 			<tr>
 			<td> Finish Time</td>
-			<td> <input type="time" name ="fname"> </td>
+			<td> <input type="time" name ="ftime"> </td>
 			
 			
 			<tr>
 			<td> Amount </td>
-			<td> <input type="number" pattern="(\d{3})([\.])(\d{2})"> </td>
+			<td> <input name ="amt"  type="number" pattern="(\d{3})([\.])(\d{2})"> </td>
 			</tr>
 			<tr>
 				<td><input name ="Pay" type="submit" value="Pay">

@@ -1,7 +1,7 @@
 
 <html>
 <body>
-	<form method="post" action="logcheck">
+	<form method="post" action="Logchecking">
 		<table>
 			<tr>
 				<td>User name</td>
