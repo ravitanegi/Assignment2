@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form method="post" action="logincheck">
+<form method="post" action="Retrievedata">
 		<table>
 
 			<tr>
@@ -19,38 +19,38 @@
 
 			<tr>
 				<td>Ticket Number</td>
-				<td><input type="text" name="Tnumber"></td>
+				<td><input type="text" name="Tnumber" value="<%= request.getAttribute("Tnumber")%>"></td>
 			</tr>
 			
 			<tr>
 				<td>Estimated Start Time</td>
-				<td><input type="time" name="estime"> </td>
+				<td><input type="time" name="estime" value="<%= request.getAttribute("estime")%>"> </td>
 			</tr>
 			
 			<tr>
 			<td> Estimated Finish Time</td>
-			<td> <input type="time" name ="eftime"> </td>
+			<td> <input type="time" name ="eftime" value="<%= request.getAttribute("eftime")%>"> </td>
 			</tr>
 			
 			<tr>
 			<td> Actual Finish Time</td>
-			<td> <input type="time" name ="aftime"> </td>
+			<td> <input type="time" name ="aftime" value="<%= request.getAttribute("aftime")%>"> </td>
 			</tr>
 			
 			
 			<tr>
 			<td> Amount </td>
-			<td> <input type="number" pattern="(\d{3})([\.])(\d{2})"> </td>
+			<td> <input name="Pamount" type="number" value="<%= request.getAttribute("Pamount")%>"> </td>
 			</tr>
 			
 			<tr>
 			<td> Exact Amount</td>
-			<td> <input type="number" pattern="(\d{3})([\.])(\d{2})"> </td>
+			<td> <input name= "Eamount" type="number" pattern="(\d{3})([\.])(\d{2})"  value="<%= request.getAttribute("Eamount")%>"> </td>
 			</tr>
 			
 			<tr>
 			<td> Refund Amount </td>
-			<td> <input type="number" pattern="(\d{3})([\.])(\d{2})"> </td>
+			<td> <input name="Ramount" type="number" pattern="(\d{3})([\.])(\d{2})"  value="<%= request.getAttribute("Ramount")%>"> </td>
 			</tr>
 			
 			<tr>

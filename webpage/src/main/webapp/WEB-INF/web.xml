@@ -52,6 +52,18 @@
   	<description></description>
   	<servlet-class>dbAccess.Parkcheck</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Retrievedata</servlet-name>
+  	<display-name>Retrievedata</display-name>
+  	<description></description>
+  	<servlet-class>dbAccess.Retrievedata</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Calendar</servlet-name>
+  	<display-name>Calendar</display-name>
+  	<description></description>
+  	<servlet-class>dbAccess.Calendar</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>logincheck</servlet-name>
   	<url-pattern>/logincheck</url-pattern>
@@ -83,5 +95,13 @@
   <servlet-mapping>
   	<servlet-name>Parkcheck</servlet-name>
   	<url-pattern>/Parkcheck</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Retrievedata</servlet-name>
+  	<url-pattern>/Retrievedata</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Calendar</servlet-name>
+  	<url-pattern>/Calendar</url-pattern>
   </servlet-mapping>
 </web-app>

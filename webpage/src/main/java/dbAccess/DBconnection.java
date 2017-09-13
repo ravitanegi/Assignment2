@@ -1,5 +1,6 @@
 package dbAccess;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DBconnection {
 	private Connection myconn;
@@ -10,7 +11,7 @@ public class DBconnection {
 		 String password = "";
 		 Class.forName("com.mysql.jdbc.Driver");
 		 myconn = DriverManager.getConnection(dbUrl,user,password);
-		 System.out.println("Initializing the database..");
+		// System.out.println("Initializing the database..");
 		 Statement myStmt = myconn.createStatement();	 
 	 }
 	 
@@ -39,13 +40,38 @@ public class DBconnection {
 		return false; 
 	 }
 	 
-	 public void writeTodb(String userid, String carno, String stime, String ftime, String amt)
+	 public ArrayList readRow(String parkingnumber)
+	 {
+		 ArrayList<String> result = new ArrayList<String>();
+		 PreparedStatement myStat = null;
+		 ResultSet myRs= null;
+		 try
+		 {
+			 myStat = myconn.prepareStatement(parkingnumber);
+			 myRs= myStat.executeQuery();
+			 while(myRs.next()) {
+				 ResultSetMetaData myrsm = myRs.getMetaData();
+				 for(int i=1; i<= myrsm.getColumnCount(); i++)
+				 {
+					 result.add(myRs.getString(i));
+					 //System.out.println(myRs.getString(i));
+                 }
+			 }
+			 }catch(SQLException e) {
+				 e.printStackTrace();
+			 }
+			 return result;
+			 
+		 }
+		 
+	 
+	 public void writeTodb(String userid,String auto, String carno, String stime, String ftime, Double amt)
 	 {
 		 try {
 			Statement sta = myconn.createStatement();
-			sta.executeUpdate("INSERT INTO CARPARKING Values (NULL,'"+ userid +"','" + carno +"', NOW(), '" + stime +" ','"+ ftime +"','" +
-			amt +"')");
-			System.out.println("successfully registered");
+			sta.executeUpdate("INSERT INTO CARPARKING Values ('"+ auto +"','"+ userid +"','" + carno +"', NOW(), '" + stime +" ','"+ ftime +"'," +
+			amt +")");
+			//System.out.println("successfully registered");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -58,11 +84,11 @@ public class DBconnection {
 		System.out.println("Db object created");
 		if(obj.searchUser("111", "12345"))
 		{
-			System.out.println("User exist");
+			//System.out.println("User exist");
 		}
 		else
 		{
-			System.out.println("The user is not in the database");
+			//System.out.println("The user is not in the database");
 		}
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();

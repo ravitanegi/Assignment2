@@ -2,6 +2,7 @@ package dbAccess;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.servlet.ServletException;
@@ -41,11 +42,48 @@ public class Parkcheck extends HttpServlet {
 		String pnumber = request.getParameter("pnumber");
 		String time = request.getParameter("time");
 		String ftime = request.getParameter("ftime");
+		int hours= Integer.parseInt(time.substring(0,2));
+		int mins= Integer.parseInt(time.substring(3,5));
+		int secs= Integer.parseInt(time.substring(6,8));
+		int timeinsec = hours*3600 + mins*60 + secs;
+		int h= Integer.parseInt(ftime.substring(0,2));
+		int m= Integer.parseInt(ftime.substring(3,5));
+		int s= Integer.parseInt(ftime.substring(6,8));
+		int timein = h*3600 + m*60 + s;
+		int duration = timein-timeinsec;
+		Double amt = (duration/3600)*1.5;
 		
-		String amt = request.getParameter("amt");
+		System.out.println(amt);
 		try {
+			
 			connect = new DBconnection();
-			connect.writeTodb(userid,pnumber,time,ftime,amt);
+			String autonumber="";
+			ArrayList<String> Parking= new ArrayList<String>();
+			Parking = connect.readRow("Select id from carparking order by id desc limit 0,1 ");
+			
+			if(Parking.size()<=0) {
+				autonumber = "";
+			}else {
+				autonumber = Parking.get(0);
+			}
+			
+			if(autonumber.equals("")) {
+				autonumber = "1";
+			}
+			else
+			{
+				autonumber= String.format("%d",Integer.parseInt(autonumber)+1);
+			}
+			
+			connect.writeTodb(userid,autonumber,pnumber,time,ftime,amt);
+			request.setAttribute("userid",userid);
+			request.setAttribute("tnumber",autonumber);
+			request.setAttribute("pnumber",pnumber);
+			request.setAttribute("time", time);
+			request.setAttribute("ftime", ftime);
+			request.setAttribute("amt", amt);
+	
+			request.getRequestDispatcher("carparked.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();
@@ -53,7 +91,7 @@ public class Parkcheck extends HttpServlet {
 			
 			e.printStackTrace();
 		}
-		response.sendRedirect("index.jsp");
+		
 	}
 
 }

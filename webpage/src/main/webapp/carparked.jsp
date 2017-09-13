@@ -1,20 +1,4 @@
-<%
-if(new java.text.SimpleDateFormat("E").format(new java.util.Date()).equals("Sun"))
-	{
-	out.println("Free and Unlimited Parking");
-	}
-	else if(new java.text.SimpleDateFormat("E").format(new java.util.Date()).equals("Sat"))
-	{
-	out.println("Free 2 hours Parking");
-	}
-else{
-	if(Integer.parseInt(new java.text.SimpleDateFormat("H").format(new java.util.Date()))<9 &&
-	Integer.parseInt(new java.text.SimpleDateFormat("H").format(new java.util.Date()))>17)
-	{
-		out.println("Free and Unlimited Parking");
-	}
-else{
-%>
+
 
 
 <%@ page import="java.util.Date"%>
@@ -32,7 +16,6 @@ else{
 	SimpleDateFormat Date_format = new SimpleDateFormat("dd-MM-yyyy");
 	String datetoday = Date_format.format(today);
 %>
-
 <body>
 	<form method="post" action="Parkcheck">
 		<table>
@@ -44,16 +27,16 @@ else{
 			</tr>
 			<tr>
 				<td>User Id</td>
-				<td><input type="text" name="Uid"></td>
+				<td><input type="text" name="Uid" value="<%= request.getAttribute("userid")%>" readonly></td>
 			</tr>
 
 			<tr>
 				<td>Ticket Number</td>
-				<td><input type="text" name="Tnumber"></td>
+				<td><input type="text" name="Tnumber" value="<%= request.getAttribute("tnumber")%>" readonly></td>
 			</tr>
 			<tr>
 				<td>Car Plate Number</td>
-				<td><input type="text" name="pnumber">
+				<td><input type="text" name="pnumber" value="<%= request.getAttribute("pnumber")%>" readonly>
 			</tr>
 			<tr>
 				<td>Date <%=datetoday%></td>
@@ -61,24 +44,21 @@ else{
 			</tr>
 			<tr>
 				<td>Start Time</td>
-				<td><input type="time" name="time"> </td>
+				<td><input type="time" name="time" value="<%= request.getAttribute("time")%>" readonly> </td>
 			</tr>
 			<tr>
 			<td> Finish Time</td>
-			<td> <input type="time" name ="ftime"> </td>
+			<td> <input type="time" name ="ftime" value="<%= request.getAttribute("ftime")%>" readonly> </td>
 			
 			
 			<tr>
 			<td> Amount </td>
-			<td> <input name ="amt"  type="number" pattern="(\d{3})([\.])(\d{2})"> </td>
+			<td> <input name ="amt"  type="number" pattern="(\d{3})([\.])(\d{2})" value="<%= request.getAttribute("amt")%>" readonly>  </td>
 			</tr>
 			<tr>
-				<td><input name ="Pay" type="submit" value="Pay"> </td>
-			</tr>
-			<tr>
-			
-				<td><a href ="holiday.jsp"> Check your restricted and unrestricted parking by seeing the calendar </a> </td>
-			
+			<td>
+				<a href = "Retrievedata?Tnumber=<%= request.getAttribute("tnumber")%>">Refund</a>
+			</td>
 			</tr>
 		</table>
 
@@ -88,4 +68,3 @@ else{
 	</form>
 </body>
 </html>
-<% }}%>
