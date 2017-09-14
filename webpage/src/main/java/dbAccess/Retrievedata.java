@@ -89,6 +89,7 @@ public class Retrievedata extends HttpServlet {
 		request.setAttribute("eftime",Ftime);
 		request.setAttribute("aftime",ActualTime);
 		request.setAttribute("Pamount",Amount);
+		connect.refundUpdateTodb(Tnumber,ActualTime,amt);
 		request.getRequestDispatcher("refund.jsp").forward(request, response);
 		
 		

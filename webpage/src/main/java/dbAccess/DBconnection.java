@@ -78,6 +78,18 @@ public class DBconnection {
 		 
 	 }
 	 
+	 public void refundUpdateTodb(String auto, String ftime, Double amt)
+	 {
+		 try {
+			Statement sta = myconn.createStatement();
+			sta.executeUpdate("Update CARPARKING set ftime= '"+ftime+"', amount= '"+amt+"' where id ='"+auto+"'");
+			//System.out.println("successfully updated");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		 
+	 }
+	 
 	public static void main(String[] args) {
 		try {
 		DBconnection obj = new DBconnection();

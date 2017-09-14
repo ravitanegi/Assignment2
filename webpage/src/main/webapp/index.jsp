@@ -75,11 +75,7 @@ else{
 			<tr>
 				<td><input name ="Pay" type="submit" value="Pay"> </td>
 			</tr>
-			<tr>
 			
-				<td><a href ="holiday.jsp"> Check your restricted and unrestricted parking by seeing the calendar </a> </td>
-			
-			</tr>
 		</table>
 
 

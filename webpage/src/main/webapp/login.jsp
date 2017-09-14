@@ -1,5 +1,7 @@
 
 <html>
+<%= new java.text.SimpleDateFormat("E,dd MM YYY").format(new java.util.Date())
+%>
 <body>
 	<form method="post" action="Logchecking">
 		<table>

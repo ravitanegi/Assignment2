@@ -64,6 +64,12 @@
   	<description></description>
   	<servlet-class>dbAccess.Calendar</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Showcal</servlet-name>
+  	<display-name>Showcal</display-name>
+  	<description></description>
+  	<servlet-class>dbAccess.Showcal</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>logincheck</servlet-name>
   	<url-pattern>/logincheck</url-pattern>
@@ -103,5 +109,9 @@
   <servlet-mapping>
   	<servlet-name>Calendar</servlet-name>
   	<url-pattern>/Calendar</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Showcal</servlet-name>
+  	<url-pattern>/Showcal</url-pattern>
   </servlet-mapping>
 </web-app>
