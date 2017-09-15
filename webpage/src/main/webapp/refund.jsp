@@ -1,3 +1,7 @@
+
+<%@ page import="java.util.Date"%>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,6 +10,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<%
+Calendar cal = Calendar.getInstance();
+SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+String time= sdf.format(cal.getTime());
+%>
 <body>
 
 <form method="post" action="Retrievedata">
@@ -34,13 +43,13 @@
 			
 			<tr>
 			<td> Actual Finish Time</td>
-			<td> <input type="time" name ="aftime" value="<%= request.getAttribute("aftime")%>"> </td>
+			<td> <input type="time" name ="aftime"  value="<%=time%>" > </td>
 			</tr>
 			
 			
 			<tr>
 			<td> Amount </td>
-			<td> <input name="Pamount" type="number" value="<%= request.getAttribute("Pamount")%>"> </td>
+			<td> <input name="Pamount" value="<%= request.getAttribute("Pamount")%>" readonly> </td>
 			</tr>
 			
 			<tr>

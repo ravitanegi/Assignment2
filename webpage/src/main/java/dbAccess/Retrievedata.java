@@ -79,7 +79,7 @@ public class Retrievedata extends HttpServlet {
 		int s= Integer.parseInt(ActualTime.substring(6,8));
 		int timein = h*3600 + m*60 + s;
 		int duration = timein-timeinsec;
-		Double amt = (duration/3600)*1.5;
+		Double amt = (duration/1800)*.75;
 		Double refund= Double.parseDouble(Amount)-amt;
 		System.out.println(refund);
 		request.setAttribute("Eamount", amt);

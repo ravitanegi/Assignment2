@@ -51,7 +51,7 @@ public class Parkcheck extends HttpServlet {
 		int s= Integer.parseInt(ftime.substring(6,8));
 		int timein = h*3600 + m*60 + s;
 		int duration = timein-timeinsec;
-		Double amt = (duration/3600)*1.5;
+		Double amt = (duration/1800)*0.75;
 		
 		System.out.println(amt);
 		try {

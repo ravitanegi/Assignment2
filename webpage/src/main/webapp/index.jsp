@@ -18,6 +18,7 @@ else{
 
 
 <%@ page import="java.util.Date"%>
+<%@ page import="java.util.Calendar" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -31,6 +32,11 @@ else{
 	Date today = new Date();
 	SimpleDateFormat Date_format = new SimpleDateFormat("dd-MM-yyyy");
 	String datetoday = Date_format.format(today);
+%>
+<%
+Calendar cal = Calendar.getInstance();
+SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+String time= sdf.format(cal.getTime());
 %>
 
 <body>
@@ -60,8 +66,8 @@ else{
 
 			</tr>
 			<tr>
-				<td>Start Time</td>
-				<td><input type="time" name="time"> </td>
+				<td>Start Time </td>
+				<td> <input type="time" name ="time"  value="<%=time%>" readonly> </td>
 			</tr>
 			<tr>
 			<td> Finish Time</td>
